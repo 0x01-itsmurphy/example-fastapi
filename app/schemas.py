@@ -18,6 +18,7 @@ class PostCreate(PostBase):
 class UserResponse(BaseModel):
     id: str
     email: EmailStr
+    phone_number: str = None
     created_at: datetime
 
     class Config:
@@ -53,6 +54,7 @@ class UserLogin(BaseModel):
 
 
 class Token(BaseModel):
+    email: str
     access_token: str
     token_type: str
 
