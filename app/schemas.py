@@ -19,6 +19,8 @@ class UserResponse(BaseModel):
     id: str
     email: EmailStr
     phone_number: str = None
+    firstName: str = None
+    lastName: str = None
     created_at: datetime
 
     class Config:
@@ -46,6 +48,7 @@ class PostOut(BaseModel):
 class CreateUser(BaseModel):
     email: EmailStr
     password: str
+    phone_number: str = None
 
 
 class UserLogin(BaseModel):
