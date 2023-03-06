@@ -33,11 +33,11 @@ def create_user(user: schemas.CreateUser, db: Session = Depends(get_db)):
 @router.get('/profile')
 def get_profile(db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user),):
     user = db.query(models.User).filter(models.User.id ==
-                                        current_user.id).first() # For same user posts only
-    print(user)
+                                        current_user.id).first()  # For same user posts only
+    
     if not user:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
-                            detail=f"Data does not exist with {current_user}")
+                            detail=f"Data does not exist")
     return user
 
 
@@ -48,5 +48,3 @@ def get_user(id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f"Data does not exist with {id}")
     return user
-
-
