@@ -29,6 +29,6 @@ app.include_router(vote.router)
 
 @app.get('/')
 def root():
-    return {"message": "Hello Mars"}
+    return {"message": "Hello from mars  😁 "}
 
 handler = Mangum(app=app)
